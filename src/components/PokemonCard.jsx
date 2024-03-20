@@ -14,21 +14,25 @@ const PokemonCard = ({ pokemon }) => {
 
   return (
     <div className="pokemon-card">
-      <h2>#{pokeID} {capitalizar(pokemon.name)}</h2>
-      <img
-        className='pokemon-sprite'
-        src={pokemon.sprites.other["official-artwork"].front_default}
-        alt={pokemon.name}
-      />
-      <div>
-        <p>Altura: {pokemon.height} m</p>
-        <p>Peso: {pokemon.weight} kg</p>
-      <div>
-        {pokemon.types.map((type, index) => (
-            <p key={index} className={`type ${type.type.name}`}>{capitalizar(type.type.name)}</p>
-          ))}
+      <div className="pokemon-image-container">
+        <img
+          className='pokemon-sprite'
+          src={pokemon.sprites.other["official-artwork"].front_default}
+          alt={pokemon.name}
+        />
       </div>
-    </div>
+      <div className="pokemon-details">
+        <h2>#{pokeID} {capitalizar(pokemon.name)}</h2>
+        <div className="pokemon-info">
+          <p>Altura: {pokemon.height} m</p>
+          <p>Peso: {pokemon.weight} kg</p>
+          <div className="pokemon-types">
+            {pokemon.types.map((type, index) => (
+              <p key={index} className={`type ${type.type.name}`}>{capitalizar(type.type.name)}</p>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

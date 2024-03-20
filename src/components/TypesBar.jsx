@@ -6,7 +6,7 @@ const TypesBar = ({ types, onFilter }) => {
 	return (
 		<div className="filter-pokemon">
 			{types.map((type, index) => (
-				<button className={type} key={index} onClick={() => onFilter(type)}>
+				<button className={`type-button ${type}`} key={index} onClick={() => onFilter(type)}>
 					{capitalizar(type)}
 				</button>
 			))}
